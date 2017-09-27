@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  country: MyString
+  month: 1
+  year: 1
+  solo_travel: false
+
+two:
+  city: MyString
+  country: MyString
+  month: 1
+  year: 1
+  solo_travel: false
