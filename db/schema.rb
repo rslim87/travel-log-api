@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170927162244) do
   create_table "logs", force: :cascade do |t|
     t.string "city"
     t.string "country"
-    t.integer "month"
+    t.string "month"
     t.integer "year"
     t.boolean "solo_travel"
     t.datetime "created_at", null: false
