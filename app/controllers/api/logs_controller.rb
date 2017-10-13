@@ -5,9 +5,9 @@ class Api::LogsController < ApplicationController
 	end
 
 	def create
-		log = Log.new(log_params)
-		if log.save
-			render json: log
+		@log = Log.new(log_params)
+		if @log.save
+			render json: @log
 		end
 	end
 
@@ -33,7 +33,7 @@ class Api::LogsController < ApplicationController
 	private
 
 	def log_params
-		params.require(:log).permit(:city, :country, :solo_travel, :month, :year)
+		params.require(:log).permit(:city, :country, :solo_travel, :month, :year, :user_id)
 	end
 
 end

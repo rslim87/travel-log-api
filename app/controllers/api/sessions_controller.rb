@@ -10,11 +10,6 @@ class Api::SessionsController < ApplicationController
 		end
 	end
 
-	def destroy 
-		@auth_token = @current_user.authentication_tokens.find(params[:id])
-		@auth_token.destroy!
-	end
-
 	private
 
 		def auth_params
