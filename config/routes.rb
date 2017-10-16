@@ -3,15 +3,14 @@ Rails.application.routes.draw do
 
   namespace :api do
   	resources :logs, except: [:new, :edit]
-  	resources :users, except: [:index, :new, :create, :destroy]
-  	get 'videos' => "videos#info"
-		
-		post 'signup' => 'users#create'
 
-  	get 'login' => 'sessions#new'
-  	post 'login' => 'sessions#create'
-  	delete 'logout' => 'sessions#destroy'
+    get 'signup', to: 'users#new'
+    post 'signup', to: 'users#create'
 
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+ 
   end
 
 
