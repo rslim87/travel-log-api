@@ -4,8 +4,7 @@ class Api::UsersController < ApplicationController
 
 	end
 
-	def create
-		params.inspect
+	def create #signup
 		user = User.new(user_params)
 		if user.save
 			render json: user

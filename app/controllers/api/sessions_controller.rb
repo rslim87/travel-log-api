@@ -4,16 +4,18 @@ class Api::SessionsController < ApplicationController
 		
 	end
 
-	def create
+	def create #login
+		user = User.find_by(username: params[:username])
+		if user && user.authenticate(params[:password])
+			render json: user
+		else
+			render json: {error: {message: "user doesn't exist"}}, status: 500
+		end
 
 	end
 
 	def destroy
 	end
 
-	private
 
-		def auth_params
-			params.require(:auth).permit(:email, :password)
-		end
 end
