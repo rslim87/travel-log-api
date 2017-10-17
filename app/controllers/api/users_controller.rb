@@ -1,25 +1,29 @@
 class Api::UsersController < ApplicationController
 
-	def new
-
-	end
-
 	def create #signup
-		user = User.new(user_params)
-		if user.save
-			render json: user
+		@user = User.new(user_params)
+		if @user.save
+      jwt = Auth.issue({user: user.id})
+      render json: {jwt: jwt}
 		else
-			render json: {error: user.errors.full_messages}, status: 500
+			render json: {error: "Couldn't create User"}
 		end
 	end
 
-	def show
-
+	def show    
+		@user = User.find_by(id: params[:id])
+		json: @user
 	end
 
-	def update
+  def update
+    @user = User.find_by(id: params[:id])
 
-	end
+    if @user.update(user_params)
+      render json: @user
+    else
+      render json: {error: "Could not update User."}
+    end
+  end
 
 
 
